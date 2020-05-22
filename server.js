@@ -1,47 +1,84 @@
-//___________________
-//Dependencies
-//___________________
+//Setup\\
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const session = require('express-session')
+const bcrypt = require('bcrypt')
+const User = require('./models/users.js')
+const postController = ('./controllers/posts.js')
+const userController = ('./controllers/users.js')
 const app = express ();
 const db = mongoose.connection;
-//___________________
-//Port
-//___________________
-// Allow use of Heroku's port or your own local port, depending on the environment
+
+//Heroku Port\\
 const PORT = process.env.PORT || 3000;
-//___________________
-//Database
-//___________________
-// How to connect to the database either via heroku or locally
+
+//Database\\
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/project2';
-// Connect to Mongo
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true });
-// Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
-db.on('disconnected', () => console.log('mongo disconnected'));
-// open the connection to mongo
+db.on('connected', () => console.log('Mongo connected: ', MONGODB_URI));
+db.on('disconnected', () => console.log('Mongo disconnected'));
 db.on('open' , ()=>{});
-//___________________
-//Middleware
-//___________________
-//use public folder for static assets
+
+//Middleware\\
 app.use(express.static('public'));
-// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
-//use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
-//___________________
-// Routes
-//___________________
-//localhost:3000 
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
+app.use(express.urlencoded({ extended: false }));
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+app.use(express.json());
+app.use(methodOverride('_method'));
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+//Controllers\\
+app.use('/posts', postController)
+app.use('/user', userController)
+
+//Authorization Routes\\
+
+const isAuthenticated = (req, res, next)=>{
+    if(req.session.currentUser){
+        return next()
+    } else {
+        res.redirect('/sessions/new')
+    }
+}
+
+//Authorization Routes\\
+app.get('/sessions/new', (req, res)=>{
+    res.render('sessions/New', {currentUser: req.session.currentUser})
+})
+
+//Authentication Route\\
+app.post('/sessions', (req, res)=>{
+    User.findOne({username: req.body.username}, (error, foundUser)=>{
+        console.log(foundUser)
+        if(error){
+            res.send(error)
+        } else if (!foundUser){
+            res.redirect('/user/new')
+        } else {
+            if(bcrypt.compareSync(req.body.password, foundUser.password)) {
+                req.session.currentUser = foundUser.username
+                res.redirect('/logs')
+            } else{
+                res.send('WRONG PASSWORD')
+            }
+        }
+    })
+})
+
+app.delete('/sessions', (req, res)=>{
+    req.session.destroy(()=>{
+        res.redirect('/sessions/new')
+    })
+})
+
+//Port Listener\\
+app.listen(PORT, ()=>{
+  console.log( 'Listening on port:', PORT)
 });
-//___________________
-//Listener
-//___________________
-app.listen(PORT, () => console.log( 'Listening on port:', PORT));
