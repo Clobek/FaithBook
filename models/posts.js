@@ -1,9 +1,9 @@
 const {Schema, model} = require('mongoose');
 
 const postSchema = new Schema({
-    title: String,
-    body: String,
-    anonymous: {type: Boolean, default: true}
+    post: String,
+    restoreOrLost: {type: Boolean, required: true},
+    anonymous: {type: Boolean, default: false}
 }, {timestamps: true});
 
 module.exports = model('Post', postSchema);
