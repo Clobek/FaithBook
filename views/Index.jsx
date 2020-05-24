@@ -14,7 +14,7 @@ class Index extends Component {
     </form>)
     return (
         <div>
-            {this.props.currentUser ? '' : signUp}
+            {this.props.currentUser ? `Signed in as: ${currentUser.username}` : signUp}
             {this.props.currentUser ? signOut : signIn}
         </div>
     );

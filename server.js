@@ -1,6 +1,5 @@
 //Setup\\
 const express = require('express');
-const methodOverride = require('method-override');
 const mongoose = require ('mongoose');
 const session = require('express-session')
 const bcrypt = require('bcrypt')
@@ -9,6 +8,7 @@ const postController = require('./controllers/posts.js')
 const userController = require('./controllers/users.js')
 const app = express ();
 const db = mongoose.connection;
+const methodOverride = require('method-override');
 
 //Heroku Port\\
 const PORT = process.env.PORT || 3000;
