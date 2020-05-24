@@ -1,6 +1,6 @@
 //Setup\\
 const express = require('express');
-const methodOverride  = require('method-override');
+const methodOverride = require('method-override');
 const mongoose = require ('mongoose');
 const session = require('express-session')
 const bcrypt = require('bcrypt')
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.json());
-app.use(methodOverride('_method'));
+app.use(methodOverride('_method'))
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
