@@ -56,15 +56,14 @@ app.get('/sessions/new', (req, res)=>{
 //Authentication Route\\
 app.post('/sessions', (req, res)=>{
     User.findOne({username: req.body.username}, (error, foundUser)=>{
-        console.log(foundUser)
         if(error){
             res.send(error)
         } else if (!foundUser){
             res.redirect('/user/new')
         } else {
             if(bcrypt.compareSync(req.body.password, foundUser.password)) {
-                req.session.currentUser = foundUser.username
-                res.redirect('/logs')
+                req.session.currentUser = foundUser
+                res.redirect('/posts')
             } else{
                 res.send('WRONG PASSWORD')
             }

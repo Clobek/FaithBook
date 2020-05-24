@@ -17,7 +17,7 @@ postController.get('/', (req, res)=>{
     Post.find({}, (error, allPosts)=>{
         res.render('Index', {
             posts: allPosts,
-            username: req.session.currentUser
+            currentUser: req.session.currentUser
         })
     })
 })
