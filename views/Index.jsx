@@ -1,5 +1,6 @@
 const React = require('react');
 const {Component} = React;
+const Layout = require('./components/Layout.jsx');
 
 class Index extends Component {
   render() {
@@ -13,10 +14,10 @@ class Index extends Component {
         <input type="submit" value="Sign up"></input>
     </form>)
     return (
-        <div>
-            {this.props.currentUser ? `Signed in as: ${this.props.currentUser.username}` : signUp}
+        <Layout title="Posts">
+            {this.props.currentUser ? <a href={`/user/${this.props.currentUser._id}`}>{this.props.currentUser.username}</a> : signUp}
             {this.props.currentUser ? signOut : signIn}
-        </div>
+        </Layout>
     );
   }
 }

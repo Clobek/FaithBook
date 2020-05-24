@@ -78,6 +78,10 @@ app.delete('/sessions', (req, res)=>{
     })
 })
 
+app.get('/', (req, res)=>{
+    res.render('Home')
+})
+
 //Port Listener\\
 app.listen(PORT, ()=>{
   console.log( 'Listening on port:', PORT)

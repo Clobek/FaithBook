@@ -14,4 +14,16 @@ users.post('/', (req, res)=>{
     })
 })
 
+users.get('/:id', (req, res)=>{
+    res.send('Profile works')
+    // if(!req.session.currentUser){
+    //     res.send('You need to log in')
+    // } else if(req.session.currentUser._id === req.params.id){
+    //     res.render('users/Index')
+    // } else{
+    //     res.send('How did you get here?')
+    //     // setTimeout(res.redirect('/posts'), 2000)
+    // }
+})
+
 module.exports = users;
