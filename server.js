@@ -5,8 +5,8 @@ const mongoose = require ('mongoose');
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 const User = require('./models/users.js')
-const postController = ('./controllers/posts.js')
-const userController = ('./controllers/users.js')
+const postController = require('./controllers/posts.js')
+const userController = require('./controllers/users.js')
 const app = express ();
 const db = mongoose.connection;
 

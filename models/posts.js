@@ -4,7 +4,7 @@ const postSchema = new Schema({
     post: String,
     restoreOrLost: {type: Boolean, required: true},
     anonymous: {type: Boolean, default: false},
-    userID: currentUser._id
+    userID: String
 }, {timestamps: true});
 
 module.exports = model('Post', postSchema);
