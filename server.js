@@ -7,6 +7,7 @@ const User = require('./models/users.js')
 const postController = require('./controllers/posts.js')
 const userController = require('./controllers/users.js')
 const app = express ();
+require('dotenv').config()
 const db = mongoose.connection;
 const methodOverride = require('method-override');
 
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 
 //Database\\
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/project2';
-mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true });
+mongoose.connect(MONGODB_URI || process.env.MONGOURI, { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true });
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('Mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('Mongo disconnected'));
