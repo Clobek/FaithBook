@@ -29,12 +29,20 @@ postController.get('/new', isAuthenticated, (req, res)=>{
 
 //Create Route\\
 postController.post('/', isAuthenticated, (req, res)=>{
-    if (req.body.anonymous == 'on'){
-        req.body.anonymous = true;
+    console.log(Post.postID)
+    console.log(postID)
+    if (req.body.anonymous === 'on'){
+        req.body.username = 'Anonymous';
     } else {
-        req.body.anonymous = false;
+        req.body.username = `${req.session.currentUser.username}`;
     }
-    Post.create(req.body, (error, createdPost)=>{
+    if(req.body.restoreOrLost === 'Restored faith in humanity'){
+        req.body.restoreOrLost = 'Restore';
+    } else if (req.body.restoreOrLost === 'Lost faith in humanity'){
+        req.body.restoreOrLost = 'Lost';
+    }
+    Post.create({post: req.body.post, restoreOrLost: req.body.restoreOrLost, username: req.body.username, userID: req.session.currentUser._id, postID: postID.push(postID.length)}, (error, createdPost)=>{
+        console.log(createdPost)
         res.redirect('/posts')
     })
 })
