@@ -6,6 +6,13 @@ class New extends Component {
     render(){
         return(
             <Layout title="Create Post">
+                <div className="bar">
+                <a href="/posts"><div className="logo"></div></a>
+                <div className="userOptions">
+                    {this.props.currentUser ? <a className="userOptionOne" href={`/user/${this.props.currentUser._id}`}>{this.props.currentUser.username}</a> : signUp}
+                    {this.props.currentUser ? signOut : signIn}
+                </div>
+                </div>
                 <form action='/posts' method='POST'>
                     <textarea maxLength="500" placeholder="Enter your text here..." name="post"/>
                     <br/>

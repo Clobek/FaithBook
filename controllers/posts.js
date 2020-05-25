@@ -29,8 +29,6 @@ postController.get('/new', isAuthenticated, (req, res)=>{
 
 //Create Route\\
 postController.post('/', isAuthenticated, (req, res)=>{
-    console.log(Post.postID)
-    console.log(postID)
     if (req.body.anonymous === 'on'){
         req.body.username = 'Anonymous';
     } else {
