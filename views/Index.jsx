@@ -21,12 +21,28 @@ class Index extends Component {
             <div className="container">
                 <div className="bar">
                     <a href="/posts"><div className="logo"></div></a>
+                    
                     <div className="createPost">
                         {this.props.currentUser ? createPost : '' }
                     </div>
                     <div className="userOptions">
                         {this.props.currentUser ? <a className="userOptionOne" href={`/user/${this.props.currentUser._id}`}>{this.props.currentUser.username}</a> : signUp}
                         {this.props.currentUser ? signOut : signIn}
+                    </div>
+                </div>
+                <div className="content">
+                    <div className="show">
+                        <h1>Name or Anonymous</h1>
+                        <h2>Restored or Lost faith in humanity...</h2>
+                        <p>Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below.</p>
+                        <div className="row">
+                        <form action="/posts/restore/" method="GET">
+                        <input className="submit" type="submit" value="Restore Faith"></input>
+                        </form>
+                        <form action="/posts/lost/" method="GET">
+                        <input className="submit" type="submit" value="Lose Faith"></input>
+                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

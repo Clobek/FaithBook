@@ -56,7 +56,8 @@ postController.delete('/:id', isAuthenticated, (req, res)=>{
 postController.get('/restore', (req, res)=>{
     Post.find({restoreOrLost: 'Restore'}, (error, foundPosts)=>{
         res.render('Show', {
-            random: foundPosts[Math.floor(Math.random()*foundPosts.length)]
+            random: foundPosts[Math.floor(Math.random()*foundPosts.length)],
+            currentUser: req.session.currentUser
         })
     })
 })
@@ -64,7 +65,8 @@ postController.get('/restore', (req, res)=>{
 postController.get('/lost', (req, res)=>{
     Post.find({restoreOrLost: 'Lost'}, (error, foundPosts)=>{
         res.render('Show', {
-            random: foundPosts[Math.floor(Math.random()*foundPosts.length)]
+            random: foundPosts[Math.floor(Math.random()*foundPosts.length)],
+            currentUser: req.session.currentUser
         })
     })
 })

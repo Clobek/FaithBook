@@ -152,10 +152,6 @@
     letter-spacing: 1px;
 }
 
-.postForm {
-    display: flex;
-}
-
 .sign > * {
     display: flex;
     justify-content: center;
@@ -202,6 +198,10 @@
     margin-bottom: 2vh;
 }
 
+.sign > form > .row {
+    border-bottom: solid white;
+}
+
 .column {
     display: flex;
     flex-flow: column;
@@ -222,4 +222,32 @@
     margin-top: 1vh;
     font-family: 'Cormorant Garamond', serif;
     letter-spacing: 1px;
+}
+
+.show > * {
+    margin: 1vh 1vw;
+}
+
+.show > h1 {
+    font-size: 55px;
+    height: 75px;
+}
+
+.show > h2 {
+    font-size: 38px;
+    height: 50px;
+    width: 80%;
+    text-align: center;
+    border-bottom: solid white;
+}
+
+.show > p {
+    font-size: 38px;
+    height: 420px;
+    overflow: auto;
+}
+
+.show > .row > form > .submit {
+    font-size: 60px;
+    margin-top: 2vh;
 }

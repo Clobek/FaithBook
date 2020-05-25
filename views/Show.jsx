@@ -32,6 +32,16 @@ class Show extends Component {
                 <div className="content">
                     <div className="show">
                         <h1>{this.props.random.username}</h1>
+                        <h2>{this.props.random.restoreOrLost === 'Restore' ? '...restored my faith in humanity' : 'Lost all faith in humanity...'}</h2>
+                        <p>{this.props.random.post}</p>
+                        <div className="row">
+                        <form action="/posts/restore/" method="GET">
+                        <input className="submit" type="submit" value="Restore Faith"></input>
+                        </form>
+                        <form action="/posts/lost/" method="GET">
+                        <input className="submit" type="submit" value="Lose Faith"></input>
+                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

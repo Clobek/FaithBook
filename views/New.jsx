@@ -32,15 +32,15 @@ class New extends Component {
                     <div className="content">
                             <div className="sign">
                             <form action='/posts' method='POST'>
-                                <textarea maxLength="500" placeholder="Enter your text here... (500 character limit)" name="post"/>
+                                <textarea maxLength="1000" placeholder="Enter your text here... (1000 character limit)" name="post" required/>
                                 <br/>
                                 <div className="row">
                                     <div className="column">
-                                    <input type="radio" id="Lost" name="restoreOrLost" value="Lost faith in humanity"/>
+                                    <input type="radio" id="Lost" name="restoreOrLost" value="Lost faith in humanity" required/>
                                     <label for="Lost">Lost faith in humanity</label>
                                     </div>
                                     <div className="column">
-                                    <input type="radio" id="Restored" name="restoreOrLost" value="Restored faith in humanity"/>
+                                    <input type="radio" id="Restored" name="restoreOrLost" value="Restored faith in humanity" required/>
                                     <label for="Restored faith in humanity">Restored faith in humanity</label>
                                     </div>
                                 </div>
