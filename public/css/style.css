@@ -21,6 +21,8 @@
     border-radius: 50px;
     padding: 2vh 2vw;
     text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
 }
 
 .welcome > h1 {
@@ -31,7 +33,7 @@
 }
 
 .welcome > p {
-    font-size: 35px;
+    font-size: 38px;
     margin-bottom: 2vh;
     height: 52vh;
     overflow: auto;
@@ -45,6 +47,8 @@
     border: solid black;
     border-radius: 5px;
     background-color: white;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
 }
 
 .entry:hover {
@@ -82,11 +86,15 @@
     height: 9vh;
 }
 
+.createPost {
+    width: 10vw;
+}
+
 .userOptions {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 30%;
+    width: 30vw;
 }
 
 .userOptionOne, .userOptionTwo {
@@ -96,6 +104,8 @@
     border: solid white;
     border-radius: 40px;
     padding: 1vh 1vw;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
 }
 
 .userOptionOne:hover, .userOptionTwo:hover, .submit:hover {
@@ -108,7 +118,6 @@
     display: flex;
     height: 90vh;
     width: 100vw;
-    background-color: solid white;
 }
 
 .sign {
@@ -123,6 +132,28 @@
     border-radius: 40px;
     padding: 1vh 1vw;
     color: white;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
+}
+
+.show {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+    background-color: #3e4042;
+    height: 80vh;
+    width: 80vw;
+    margin: 5vh 10vw;
+    border-radius: 40px;
+    padding: 1vh 1vw;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
+}
+
+.postForm {
+    display: flex;
 }
 
 .sign > * {
@@ -153,10 +184,42 @@
     border-radius: 5px;
     background-color: #18191a;
     margin-bottom: 1vh;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
 }
 
 .signHere {
     text-decoration: none;
     color: white;
     text-decoration: underline;
+}
+
+.row {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+
+.column {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 1vh 0;
+}
+
+.sign > form > textarea {
+    width: 60vw;
+    height: 33vh;
+    resize: none;
+    overflow: auto;
+    font-size: 2vw;
+    padding: 1vh 1vw;
+    outline: none;
+    margin-top: 1vh;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
 }

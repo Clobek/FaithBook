@@ -2,15 +2,16 @@ const React = require('react');
 
 const Layout = (props) => {
     return (
-        <>
+        <html>
             <head>
+                <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=EB+Garamond&display=swap" rel="stylesheet"/>
                 <link rel="stylesheet" href="/css/style.css" />
-                <title>Home</title>
+                <title>{props.title}</title>
             </head>
             <body>
                 {props.children}
             </body>
-        </>
+        </html>
     );
 };
 

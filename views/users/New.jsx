@@ -27,9 +27,9 @@ class NewUser extends Component {
                     <div className="sign">
                         <h1>Sign Up</h1>
                         <form action="/user/" method="POST">
-                        Username: <input type="text" name="username" />
+                        Username: <input type="text" name="username" maxLength="10" placeholder="Maximum Length 10"/>
                         <br />
-                        Password: <input type="password" name="password" />
+                        Password: <input type="password" name="password" minLength="4" placeholder="Minimum Length 4"/>
                         <br />
                         <input className="submit" type="submit" value="Create account" />
                         </form>

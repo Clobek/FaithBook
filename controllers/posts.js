@@ -24,7 +24,7 @@ postController.get('/', (req, res)=>{
 
 //New Route\\
 postController.get('/new', isAuthenticated, (req, res)=>{
-    res.render('New')
+    res.render('New', {currentUser: req.session.currentUser})
 })
 
 //Create Route\\
@@ -39,7 +39,7 @@ postController.post('/', isAuthenticated, (req, res)=>{
     } else if (req.body.restoreOrLost === 'Lost faith in humanity'){
         req.body.restoreOrLost = 'Lost';
     }
-    Post.create({post: req.body.post, restoreOrLost: req.body.restoreOrLost, username: req.body.username, userID: req.session.currentUser._id, postID: postID.push(postID.length)}, (error, createdPost)=>{
+       Post.create({post: req.body.post, restoreOrLost: req.body.restoreOrLost, username: req.body.username, userID: req.session.currentUser._id}, (error, createdPost)=>{
         console.log(createdPost)
         res.redirect('/posts')
     })
@@ -52,11 +52,19 @@ postController.delete('/:id', isAuthenticated, (req, res)=>{
     })
 })
 
-//Show Route\\
-postController.get('/:id', (req, res)=>{
-    Post.findById(req.params.id, (error, foundPost)=>{
+//Show Routes\\
+postController.get('/restore', (req, res)=>{
+    Post.find({restoreOrLost: 'Restore'}, (error, foundPosts)=>{
         res.render('Show', {
-            post: foundPost
+            random: foundPosts[Math.floor(Math.random()*foundPosts.length)]
+        })
+    })
+})
+
+postController.get('/lost', (req, res)=>{
+    Post.find({restoreOrLost: 'Lost'}, (error, foundPosts)=>{
+        res.render('Show', {
+            random: foundPosts[Math.floor(Math.random()*foundPosts.length)]
         })
     })
 })

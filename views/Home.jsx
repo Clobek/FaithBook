@@ -5,7 +5,7 @@ const Layout = require('./components/Layout.jsx');
 class Home extends Component {
   render() {
     return (
-        <Layout>
+        <Layout title="Home">
             <div className="container">
                 <div className="welcome">
                     <h1>Home</h1>
