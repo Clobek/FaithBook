@@ -108,7 +108,7 @@
     letter-spacing: 1px;
 }
 
-.userOptionOne:hover, .userOptionTwo:hover, .submit:hover {
+.userOptionOne:hover, .userOptionTwo:hover, .submit:hover, .submitPost:hover {
     background-color: white;
     color: #18191a;
     cursor: pointer;
@@ -126,11 +126,10 @@
     align-items: center;
     flex-flow: column;
     background-color: #3e4042;
-    height: 70vh;
+    height: 80vh;
     width: 80vw;
-    margin: 10vh 10vw;
-    border-radius: 40px;
-    padding: 1vh 1vw;
+    margin: 5vh 10vw;
+    border-radius: 38px;
     color: white;
     font-family: 'Kalam', cursive;
     letter-spacing: 1px;
@@ -157,17 +156,16 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    margin-bottom: 1vh;
-    font-size: 2vw;
-    width: 60vw;
+    font-size: 38px;
+    width: 70vw;
 }
 
 .sign > h1 {
-    font-size: 5vw;
+    font-size: 80px;
 }
 
 .sign > form > input {
-    font-size: 2vw;
+    font-size: 55px;
     text-align: center;
 }
 
@@ -194,11 +192,21 @@
     flex-flow: row;
     justify-content: space-around;
     width: 100%;
-    margin-bottom: 2vh;
+    margin-bottom: 10px;
+}
+
+.rowTwo {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .sign > form > .row {
     border-bottom: solid white;
+    text-align: center;
 }
 
 .column {
@@ -208,6 +216,26 @@
     align-items: center;
     width: 50%;
     padding: 1vh 0;
+}
+
+.columnTwo {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.submitPost {
+    color: white;
+    font-size: 38px;
+    padding: 5px;
+    border: solid white;
+    border-radius: 5px;
+    background-color: #18191a;
+    font-family: 'Kalam', cursive;
+    letter-spacing: 1px;
+    margin-top: 10px;
 }
 
 .sign > form > textarea {

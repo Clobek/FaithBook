@@ -21,7 +21,7 @@ class Index extends Component {
             <div className="container">
                 <div className="bar">
                     <a href="/posts"><div className="logo"></div></a>
-                    
+
                     <div className="createPost">
                         {this.props.currentUser ? createPost : '' }
                     </div>
@@ -33,7 +33,7 @@ class Index extends Component {
                 <div className="content">
                     <div className="show">
                         <h1>Name or Anonymous</h1>
-                        <h2>Restored or Lost faith in humanity...</h2>
+                        <h2>Restored/Lost faith in humanity...</h2>
                         <p>Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below.</p>
                         <div className="row">
                         <form action="/posts/restore/" method="GET">

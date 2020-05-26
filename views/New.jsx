@@ -44,10 +44,13 @@ class New extends Component {
                                     <label for="Restored faith in humanity">Restored faith in humanity</label>
                                     </div>
                                 </div>
+                                <div className="rowTwo">
+                                <div className="columnTwo">
                                 <input type="checkbox" id="anonymous" name="anonymous"/>
                                 <label for="anonymous">Anonymous</label>
-                                <br/>
-                                <input className="submit" type="submit" value="Post"/>
+                                </div>
+                                </div>
+                                <input className="submitPost" type="submit" value="Post"/>
                             </form>
                             </div>
                         </div>
