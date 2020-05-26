@@ -25,7 +25,6 @@ users.post('/', (req, res)=>{
 users.get('/:id', isAuthenticated, (req, res)=>{
     if(req.session.currentUser._id === req.params.id){
         Post.find({userID: req.session.currentUser._id}, (error, yourPosts)=>{
-            console.log(yourPosts)
             res.render('users/Index', {
                 currentUser: req.session.currentUser,
                 posts: yourPosts

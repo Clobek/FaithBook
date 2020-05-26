@@ -66,20 +66,25 @@ postController.get('/lost', (req, res)=>{
 
 //Edit Route\\
 postController.get('/edit/:id', isAuthenticated, (req, res)=>{
-    Post.findByIdAndRemove(req.params.id, (error, foundPost)=>{
-        res.render('Edit', {post: foundPost})
+    Post.findById(req.params.id, (error, foundPost)=>{
+        res.render('Edit', {post: foundPost, currentUser: req.session.currentUser})
     })
 })
 
 //Update Route\\
 postController.put('/edit/:id', isAuthenticated, (req, res)=>{
-    if(req.body.anonymous === 'on'){
-        req.body.anonymous = true;
-    } else{
-        req.body.anonymous = false;
+    if (req.body.anonymous === 'on'){
+        req.body.username = 'Anonymous';
+    } else {
+        req.body.username = `${req.session.currentUser.username}`;
     }
-    Post.findByIdAndUpdate(req.params.id, req.body, (error, data)=>{
-        res.redirect('/posts')
+    if(req.body.restoreOrLost === 'Restored faith in humanity'){
+        req.body.restoreOrLost = 'Restore';
+    } else if (req.body.restoreOrLost === 'Lost faith in humanity'){
+        req.body.restoreOrLost = 'Lost';
+    }
+    Post.findByIdAndUpdate(req.params.id, {post: req.body.post, restoreOrLost: req.body.restoreOrLost, username: req.body.username, userID: req.session.currentUser._id}, (error, data)=>{
+        res.redirect(`/user/${req.session.currentUser._id}`)
     })
 })
 

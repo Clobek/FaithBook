@@ -35,10 +35,13 @@ class UserIndex extends Component {
                         return (
                             <div className="individualPost">
                                 <h1>{post.username}</h1>
-                                <h2>{post.restoreOrLost}</h2>
+                                <h2>{post.restoreOrLost === 'Restore' ? '...restored my faith in humanity' : 'Lost all faith in humanity...'}</h2>
                                 <p>{post.post}</p>
+                                <form action={`/posts/edit/${post._id}/`} method="GET">
+                                    <input type="submit" value="Edit"/>
+                                </form>
                                 <form action={`/user/${post._id}?_method=DELETE`} method="post">
-                                <input type="submit" value="Delete"/>
+                                    <input type="submit" value="Delete"/>
                                 </form>
                             </div>
                         )
