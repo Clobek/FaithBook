@@ -39,7 +39,7 @@ users.get('/:id', isAuthenticated, (req, res)=>{
 //Delete Route\\
 users.delete('/:id', isAuthenticated, (req, res)=>{
     Post.findByIdAndRemove(req.params.id, (error, data)=>{
-        res.redirect('/posts')
+        res.redirect(`/user/${req.session.currentUser._id}`)
     })
 })
 
