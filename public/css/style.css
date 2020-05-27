@@ -278,3 +278,26 @@
     font-size: 60px;
     margin-top: 2vh;
 }
+
+.individualPost {
+    display: flex;
+    flex-flow: column;
+    background-color: #3e4042;
+    width: 60%;
+    height: auto;
+    margin: 25px 20%;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.individualPost > h1, h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.individualPost > h2 {
+    border-bottom: solid white;
+    width: 50%;
+    margin: 0 25%;
+}
+
