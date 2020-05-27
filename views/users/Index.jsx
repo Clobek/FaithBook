@@ -18,7 +18,7 @@ class UserIndex extends Component {
     </form>)
     return (
         <Layout title="Profile">
-            <div className="container">
+            <div className="containerTwo">
                 <div className="bar">
                     <a href="/posts"><div className="logo"></div></a>
 
@@ -37,12 +37,18 @@ class UserIndex extends Component {
                                 <h1>{post.username}</h1>
                                 <h2>{post.restoreOrLost === 'Restore' ? '...restored my faith in humanity' : 'Lost all faith in humanity...'}</h2>
                                 <p>{post.post}</p>
+                                <div className="row">
+                                    <div className="column">
                                 <form action={`/posts/edit/${post._id}/`} method="GET">
                                     <input type="submit" value="Edit"/>
                                 </form>
+                                </div>
+                                <div className="column">
                                 <form action={`/user/${post._id}?_method=DELETE`} method="post">
                                     <input type="submit" value="Delete"/>
                                 </form>
+                                </div>
+                                </div>
                             </div>
                         )
                     })}
