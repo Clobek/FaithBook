@@ -84,7 +84,9 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/01110000011011110111001101110100', (req, res)=>{
-    res.send(Post.find())
+    Post.find({}, (error, allPosts)=>{
+        res.send(allPosts)
+    })
 })
 
 //Drop Database Route\\
