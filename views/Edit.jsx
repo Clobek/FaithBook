@@ -36,17 +36,17 @@ class Edit extends Component {
                                 <br/>
                                 <div className="row">
                                     <div className="column">
-                                    <input type="radio" id="Lost" name="restoreOrLost" value="Lost faith in humanity" required/>
+                                    <input className="radio" type="radio" id="Lost" name="restoreOrLost" value="Lost faith in humanity" required/>
                                     <label for="Lost">Lost faith in humanity</label>
                                     </div>
                                     <div className="column">
-                                    <input type="radio" id="Restored" name="restoreOrLost" value="Restored faith in humanity" required/>
+                                    <input className="radio" type="radio" id="Restored" name="restoreOrLost" value="Restored faith in humanity" required/>
                                     <label for="Restored faith in humanity">Restored faith in humanity</label>
                                     </div>
                                 </div>
                                 <div className="rowTwo">
                                 <div className="columnTwo">
-                                <input type="checkbox" id="anonymous" name="anonymous"/>
+                                <input className="anon" type="checkbox" id="anonymous" name="anonymous"/>
                                 <label for="anonymous">Anonymous</label>
                                 </div>
                                 </div>

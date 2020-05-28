@@ -339,3 +339,8 @@
 .postBox {
     background-color: #18191a;
 }
+
+.anon, .radio {
+    width: 25px;
+    height: 25px;
+}
