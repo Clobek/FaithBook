@@ -84,11 +84,11 @@ app.get('/', (req, res)=>{
 })
 
 //All Users Route\\
-app.get('/01110101011100110110010101110010', (req, res)=>{
-    User.find({}, (error, allUsers)=>{
-        res.send(allUsers)
-    })
-})
+// app.get('/01110101011100110110010101110010', (req, res)=>{
+//     User.find({}, (error, allUsers)=>{
+//         res.send(allUsers)
+//     })
+// })
 
 //All Posts Route\\
 // app.get('/01110000011011110111001101110100', (req, res)=>{
