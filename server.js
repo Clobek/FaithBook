@@ -83,11 +83,19 @@ app.get('/', (req, res)=>{
     res.render('Home')
 })
 
-app.get('/01110000011011110111001101110100', (req, res)=>{
-    Post.find({}, (error, allPosts)=>{
-        res.send(allPosts)
+//All Users Route\\
+app.get('/01110101011100110110010101110010', (req, res)=>{
+    User.find({}, (error, allUsers)=>{
+        res.send(allUsers)
     })
 })
+
+//All Posts Route\\
+// app.get('/01110000011011110111001101110100', (req, res)=>{
+//     Post.find({}, (error, allPosts)=>{
+//         res.send(allPosts)
+//     })
+// })
 
 //Drop Database Route\\
 //app.get('/01100100011100100110111101110000', (req, res)=>{
