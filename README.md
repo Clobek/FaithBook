@@ -9,3 +9,6 @@ Created using HTML/JavaScript/CSS with the help of Express, Mongoose/MongoDB, JS
 <h2>Ideas for future installments:</h2>
 -A toggle for profanity filter - I don't like the idea of censoring people... but having an option for anyone who wishes to have profanity hidden/starred out would be nice.
 -A way to search posts by ID and/or a favorite system where you can view posts that you've favorited (potentially in the same place as you view your own posts)
+
+<h2>Project Website:</h2>
+https://belock.herokuapp.com/
