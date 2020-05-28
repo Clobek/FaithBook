@@ -88,14 +88,5 @@ postController.put('/edit/:id', isAuthenticated, (req, res)=>{
     })
 })
 
-
-//Drop Database Route\\
-// postController.get('/01100100011100100110111101110000', (req, res)=>{
-//     Post.db.dropDatabase(()=>{
-//         console.log('DB Dropped')
-//     })
-//     res.redirect('/posts')
-// })
-
 //Export\\
 module.exports = postController;

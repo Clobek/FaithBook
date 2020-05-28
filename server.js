@@ -4,6 +4,7 @@ const mongoose = require ('mongoose');
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 const User = require('./models/users.js')
+const Post = require('./models/posts.js')
 const postController = require('./controllers/posts.js')
 const userController = require('./controllers/users.js')
 const app = express ();
@@ -81,6 +82,18 @@ app.delete('/sessions', (req, res)=>{
 app.get('/', (req, res)=>{
     res.render('Home')
 })
+
+app.get('/01110000011011110111001101110100', (req, res)=>{
+    res.send(Post.find())
+})
+
+//Drop Database Route\\
+//app.get('/01100100011100100110111101110000', (req, res)=>{
+//     Post.db.dropDatabase(()=>{
+//         console.log('DB Dropped')
+//     })
+//     res.redirect('/posts')
+// })
 
 //Port Listener\\
 app.listen(PORT, ()=>{
