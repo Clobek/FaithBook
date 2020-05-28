@@ -2,7 +2,7 @@ const React = require('react');
 const {Component} = React;
 const Layout = require('./components/Layout.jsx');
 
-class Index extends Component {
+class Counter extends Component {
   render() {
     const signOut = (<form action="/sessions/?_method=delete" method="POST">
     <input className="userOptionTwo" type="submit" value="Sign out"></input>
@@ -16,12 +16,19 @@ class Index extends Component {
     const createPost = (<form action="/posts/new/" method="GET">
     <input className="userOptionOne" type="submit" value="Create Post"></input>
     </form>)
+    let current;
+    if(this.props.lost > this.props.restore){
+        current = 'Looks like we could use some more positivity around here!'
+    } else if(this.props.restore > this.props.lost){
+        current = 'It\'s a little too cheery around here...'
+    } else {
+        current = 'Balanced, as all things should be.'
+    }
     return (
-        <Layout title="Posts">
+        <Layout title="Counter">
             <div className="container">
                 <div className="bar">
                     <a href="/posts"><div className="logo"></div></a>
-
                     <div className="createPost barRow">
                         <form action="/posts/counter/" method="GET">
                         <input className="userOptionOne" type="submit" value="Counter"></input>
@@ -35,16 +42,14 @@ class Index extends Component {
                 </div>
                 <div className="content">
                     <div className="show">
-                        <h1>Name or Anonymous</h1>
-                        <h2>Restored/Lost faith in humanity...</h2>
-                        <p>Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below. Example text to show you what a post will look like once you click one of the two buttons below.</p>
-                        <div className="row">
-                        <form action="/posts/restore/" method="GET">
-                        <input className="submit" type="submit" value="Restore Faith"></input>
-                        </form>
-                        <form action="/posts/lost/" method="GET">
-                        <input className="submit" type="submit" value="Lose Faith"></input>
-                        </form>
+                        <div className="counter column">
+                            <h1>Post Counter:</h1>
+                            <h2>{`Total posts: ${this.props.total}`}</h2>
+                            <h3>{`Restore: ${this.props.restore}`}</h3>
+                            <h3>{`Lost: ${this.props.lost}`}</h3>
+                            <h4>
+                            {current}
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -54,4 +59,4 @@ class Index extends Component {
   }
 }
 
-module.exports = Index;
+module.exports = Counter;

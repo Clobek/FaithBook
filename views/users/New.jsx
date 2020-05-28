@@ -18,6 +18,12 @@ class NewUser extends Component {
             <div className="container">
                 <div className="bar">
                     <a href="/posts"><div className="logo"></div></a>
+                    <div className="createPost barRow">
+                        <form action="/posts/counter/" method="GET">
+                        <input className="userOptionOne" type="submit" value="Counter"></input>
+                        </form>
+                        {this.props.currentUser ? createPost : '' }
+                    </div>
                     <div className="userOptions">
                         {this.props.currentUser ? <a className="userOptionOne" href={`/user/${this.props.currentUser._id}`}>{this.props.currentUser.username}</a> : signUp}
                         {this.props.currentUser ? signOut : signIn}

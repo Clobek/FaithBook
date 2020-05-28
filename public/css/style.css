@@ -195,6 +195,13 @@
     margin-bottom: 10px;
 }
 
+.barRow {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
 .rowTwo {
     display: flex;
     flex-flow: row;
@@ -343,4 +350,26 @@
 .anon, .radio {
     width: 25px;
     height: 25px;
+}
+
+.counter > h1 {
+    font-size: 60px;
+    margin-bottom: 60px;
+}
+
+.counter > h2 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.counter > h3 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.counter > h4 {
+    font-size: 28px;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
 }

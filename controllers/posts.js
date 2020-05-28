@@ -64,6 +64,22 @@ postController.get('/lost', (req, res)=>{
     })
 })
 
+postController.get('/counter', (req, res)=>{
+    Post.find({}, (error, totalData)=>{
+        Post.find({restoreOrLost: 'Lost'}, (error, lostData)=>{
+        Post.find({restoreOrLost: 'Restore'}, (error, restoreData)=>{
+            res.render('Counter', {
+                total: totalData.length,
+                lost: lostData.length,
+                restore: restoreData.length,
+                currentUser: req.session.currentUser
+            })
+            })
+        })
+    })
+})
+    
+
 //Edit Route\\
 postController.get('/edit/:id', isAuthenticated, (req, res)=>{
     Post.findById(req.params.id, (error, foundPost)=>{

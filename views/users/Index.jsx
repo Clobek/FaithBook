@@ -21,8 +21,10 @@ class UserIndex extends Component {
             <div className="containerTwo">
                 <div className="bar">
                     <a href="/posts"><div className="logo"></div></a>
-
-                    <div className="createPost">
+                    <div className="createPost barRow">
+                        <form action="/posts/counter/" method="GET">
+                        <input className="userOptionOne" type="submit" value="Counter"></input>
+                        </form>
                         {this.props.currentUser ? createPost : '' }
                     </div>
                     <div className="userOptions">
